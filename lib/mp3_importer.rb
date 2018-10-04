@@ -8,8 +8,8 @@ class MP3Importer
   def files
     @file = Dir.entries(path).select{|file| file[/\.mp3$/]}
     end
-    
-  end
+
+  
 
   def import
     self.files.each do |filename|
