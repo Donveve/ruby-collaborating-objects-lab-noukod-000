@@ -6,11 +6,9 @@ class MP3Importer
   end
 
   def files
-    files = []
-    Dir.new(self.path).each do |file|
-      files << file if file.length > 4
+    @file = Dir.entries(path).select{|file| file[/\.mp3$/]}
     end
-    files
+    
   end
 
   def import
