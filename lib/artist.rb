@@ -23,7 +23,7 @@ class Artist
     @@all << self
   end
 def self.find_or_create_by_name(name)
-self.find(name)? self.find(name): self.crreate(name)
+self.find(name)? self.find(name): self.create(name)
 end
 
 def self.find(name)
