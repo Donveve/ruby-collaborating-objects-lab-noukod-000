@@ -11,19 +11,24 @@ class Artist
     @@all
   end
 
-  def songs
-    Song.find_by_artist(self)
+  def add_song(song)
+    @songs << song
   end
 
-  def self.find_or_create_by_name(name)
-    self.find(name) ? self.find(name) : self.create(name)
+  def self.all
+    @@all
   end
 
-  def self.find(name)
-    self.all.find {|artist| artist.name == name }
+  def save
+    @@all << self
   end
+def self.find_or_create_by_name(name)
+self.find(name)? self.find(name): self.crreate(name)
+end
 
-
+def self.find(name)
+self.all.find {|artist| artist.name == name}
+end
   def self.create(name)
     self.new(name).tap {|artist| artist.save}
   end
@@ -32,10 +37,10 @@ class Artist
     @@all << self
   end
 
-  # def print_songs
-  # 		@songs.each do |song|
-  # 			puts song.name
-  # 		end
-  # 	end
+  def print_songs
+  		@songs.each do |song|
+  			puts song.name
+  		end
+  	end
 
 end
